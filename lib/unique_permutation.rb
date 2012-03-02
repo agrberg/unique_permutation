@@ -3,7 +3,7 @@
 # identical permutations.
 
 class Array
-  def unique_permutation
+  def unique_permutation(&block)
     return enum_for(:unique_permutation) unless block_given?
 
     array_copy = self.sort

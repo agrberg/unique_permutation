@@ -1,2 +1,0 @@
-Add the unique_permutation method to the Array class.
-This is incredibly more efficient that the built in permutation method as duplicate elements will yield identical permutations.
