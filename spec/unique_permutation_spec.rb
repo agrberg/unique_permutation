@@ -2,6 +2,9 @@ require File.join(File.dirname(__FILE__), 'spec_helper')
 
 describe Array do
   describe '#unique_permutation' do
+    # The six permutations of array [1, 2, 2] are [1, 2, 2], [1, 2, 2], [2, 1, 2], [2, 2, 1], [2, 1, 2], and [2, 2, 1]
+    # Of those, only three are unique: [1, 2, 2], [2, 1, 2], and [2, 2, 1]
+
     before(:all) do
       @array = [1, 2, 2]
     end
