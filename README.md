@@ -2,7 +2,9 @@ Overview
 --------
 
 unique_permutation adds a method to the Ruby Array class that will give only unique permutations.
-This is more efficient that the built in permutation method as duplicate elements will yield identical permutations.
+This is more efficient that the built in permutation method for arrays with duplicate elements in the cases where the difference between [1, 2, 2] and [1, 2, 2] is not important.
+
+Unique Permutation now has some specs. If it wasn't kanged from programming puzzle I did, it would've had them to begin with.
 
 Setup & Installation
 --------------------
