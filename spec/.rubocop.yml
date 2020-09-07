@@ -1,0 +1,18 @@
+inherit_from: ../.rubocop.yml
+
+require: 'rubocop-rspec'
+
+Metrics/BlockLength:
+  Enabled: false
+
+RSpec/DescribedClass: # I'm not testing the Array class itself but a method I'm adding
+  Enabled: false
+
+RSpec/FilePath: # I'm not testing the Array class itself but a method I'm adding
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Max: 5
+
+RSpec/NestedGroups:
+  Max: 5

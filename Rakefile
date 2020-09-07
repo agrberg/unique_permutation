@@ -2,15 +2,15 @@ require 'rake'
 require 'rspec/core/rake_task'
 
 desc 'Default: run specs.'
-task :default => :spec
+task default: :spec
 
 desc 'Run specs'
 RSpec::Core::RakeTask.new do |t|
-  t.pattern = "./spec/**/*_spec.rb"
+  t.pattern = './spec/**/*_spec.rb'
 end
 
 desc 'Generage code coverage with simplecov'
 task :coverage do
-  `rake spec COVERAGE=true`
+  `COVERAGE=true rspec`
   `open coverage/index.html`
 end
