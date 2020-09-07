@@ -11,6 +11,6 @@ end
 
 desc 'Generage code coverage with simplecov'
 task :coverage do
-  `rake spec COVERAGE=true`
+  `COVERAGE=true rspec`
   `open coverage/index.html`
 end

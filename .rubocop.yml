@@ -1,0 +1,16 @@
+AllCops:
+  TargetRubyVersion: 2.6
+  NewCops: enable
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/NumericPredicate:
+  Exclude:
+    - lib/unique_permutation.rb
+
+Style/SpecialGlobalVars:
+  EnforcedStyle: use_english_names

@@ -5,13 +5,13 @@ describe Array do
     let(:array) { [1, 2, 2] }
     # The six permutations of array [1, 2, 2] are [1, 2, 2], [1, 2, 2], [2, 1, 2], [2, 2, 1], [2, 1, 2], and [2, 2, 1]
     # Of those, only three are unique: [1, 2, 2], [2, 1, 2], and [2, 2, 1]
-    let(:unique_permutations) {
+    let(:unique_permutations) do
       [
         [1, 2, 2],
         [2, 1, 2],
         [2, 2, 1]
       ]
-    }
+    end
 
     it 'takes a block that is yielded an array representing each permutation of the array' do
       array.unique_permutation do |permutation|

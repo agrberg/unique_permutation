@@ -9,4 +9,5 @@ Gem::Specification.new do |s|
   s.files       = ['lib/unique_permutation.rb']
   s.homepage    = 'https://github.com/agrberg/unique_permutation'
   s.license     = 'MIT'
+  s.required_ruby_version = '~> 2.6'
 end
