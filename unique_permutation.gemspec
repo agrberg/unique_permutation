@@ -8,4 +8,5 @@ Gem::Specification.new do |s|
   s.email       = 'aarongrosenberg@gmail.com'
   s.files       = ['lib/unique_permutation.rb']
   s.homepage    = 'https://github.com/agrberg/unique_permutation'
+  s.license     = 'MIT'
 end

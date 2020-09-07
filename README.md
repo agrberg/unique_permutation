@@ -20,4 +20,4 @@ gem 'unique_permutation'
 License
 ---------
 
-This is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License Version 2 as published by the Free Software Foundation: www.gnu.org/copyleft/gpl.html
+[MIT License](https://en.wikipedia.org/wiki/MIT_License)
