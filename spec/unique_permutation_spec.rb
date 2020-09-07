@@ -10,24 +10,24 @@ describe Array do
     end
 
     it 'takes a block that is yielded an array representing each permutation of the array' do
-      @array.unique_permutation {|p| p.should be_a(Array) }
+      @array.unique_permutation { |permutation| expect(permutation).to be_a(Array) }
     end
 
     it 'returns an enum if no block is given' do
-      @array.unique_permutation.should be_a(Enumerator)
+      expect(@array.unique_permutation).to be_a(Enumerator)
     end
 
     it 'does not have duplicate permutations' do
       permutations = @array.unique_permutation.to_a
-      permutations.select {|p| p == permutations.first }.count.should be 1
+      expect(permutations.select {|p| p == permutations.first }.count).to eq(1)
     end
 
     it 'generates only unique permutations in arrays with repeated elements' do
-      @array.unique_permutation.to_a.count.should be 3
+      expect(@array.unique_permutation.to_a.count).to eq(3)
     end
 
     it 'return fewer elements than the built in Ruby permutation method which produces duplicates' do
-      @array.unique_permutation.count.should be < @array.permutation.count
+      expect(@array.unique_permutation.count).to be < @array.permutation.count
     end
   end
 end
