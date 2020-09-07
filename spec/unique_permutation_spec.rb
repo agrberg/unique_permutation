@@ -9,15 +9,15 @@ describe Array do
       @array = [1, 2, 2]
     end
 
-    it 'should take a block that gets each array permutation' do
+    it 'takes a block that is yielded an array representing each permutation of the array' do
       @array.unique_permutation {|p| p.should be_a(Array) }
     end
 
-    it 'should return an enum if no block is given' do
+    it 'returns an enum if no block is given' do
       @array.unique_permutation.should be_a(Enumerator)
     end
 
-    it 'should not have duplicate permutations' do
+    it 'does not have duplicate permutations' do
       permutations = @array.unique_permutation.to_a
       permutations.select {|p| p == permutations.first }.count.should be 1
     end
@@ -26,7 +26,7 @@ describe Array do
       @array.unique_permutation.to_a.count.should be 3
     end
 
-    it 'should return fewer elements than the built in Ruby permutation method making it faster' do
+    it 'return fewer elements than the built in Ruby permutation method which produces duplicates' do
       @array.unique_permutation.count.should be < @array.permutation.count
     end
   end

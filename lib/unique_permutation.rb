@@ -2,6 +2,8 @@
 # This is incredibly more efficient that the built in permutation method as duplicate elements will yield
 # identical permutations.
 
+# Based off of Algorithm L (Donald Knuth)
+
 class Array
   def unique_permutation(&block)
     return enum_for(:unique_permutation) unless block_given?
@@ -11,13 +13,12 @@ class Array
     return if size < 2
 
     while true
-      # Based off of Algorithm L (Donald Knuth)
       j = size - 2;
       j -= 1 while j > 0 && array_copy[j] >= array_copy[j+1]
 
       if array_copy[j] < array_copy[j+1]
         l = size - 1
-        l -= 1 while array_copy[j] >= array_copy[l] 
+        l -= 1 while array_copy[j] >= array_copy[l]
 
         array_copy[j] , array_copy[l] = array_copy[l] , array_copy[j]
         array_copy[j+1..-1] = array_copy[j+1..-1].reverse
