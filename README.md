@@ -1,4 +1,4 @@
-Unique Permutation
+Unique Permutation [![Build Status](https://travis-ci.org/agrberg/unique_permutation.svg?branch=master)](https://travis-ci.org/agrberg/unique_permutation)
 ==================
 
 Overview
