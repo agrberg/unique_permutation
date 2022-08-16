@@ -1,4 +1,4 @@
-Unique Permutation [![Build Status](https://travis-ci.org/agrberg/unique_permutation.svg?branch=master)](https://travis-ci.org/agrberg/unique_permutation)
+Unique Permutation [![Build Status](https://github.com/agrberg/unique_permutation/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/agrberg/unique_permutation/actions/workflows/test.yml)
 ==================
 
 Overview
