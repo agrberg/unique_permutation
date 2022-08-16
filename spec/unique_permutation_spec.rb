@@ -16,7 +16,7 @@ describe Array do
     it 'takes a block that is yielded an array representing each permutation of the array' do
       array.unique_permutation do |permutation|
         expect(permutation).to be_a(Array)
-        expect(unique_permutations.include?(permutation)).to eq(true)
+        expect(unique_permutations.include?(permutation)).to be(true)
       end
     end
 
@@ -27,7 +27,7 @@ describe Array do
     it 'does not have duplicate permutations' do
       all_permutations = array.unique_permutation.to_a
 
-      expect(all_permutations.none? { |permutation| all_permutations.count(permutation) > 1 }).to eq(true)
+      expect(all_permutations.none? { |permutation| all_permutations.count(permutation) > 1 }).to be(true)
     end
 
     it 'generates only unique permutations in arrays with repeated elements' do
