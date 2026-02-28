@@ -10,6 +10,7 @@ A Ruby gem that adds `Array#unique_permutation` — generates only unique permut
 
 ```bash
 bundle install                          # Install dependencies
+bundle update --all                     # Update all gems to latest versions
 bundle exec rake                        # Default: runs RuboCop then RSpec
 bundle exec rspec                       # Run tests only
 bundle exec rspec spec/unique_permutation_spec.rb:16  # Run single test by line
@@ -24,7 +25,9 @@ Single-file gem: the entire implementation is `lib/unique_permutation.rb`, which
 
 ## Conventions
 
-- RuboCop with `rubocop-rspec` plugin; `NewCops: enable`
-- Targets Ruby >= 2.6; CI tests against Ruby 2.7, 3.0, 3.1, plus ruby-head and jruby-head
+- `frozen_string_literal: true` on all Ruby files
+- RuboCop with `rubocop-performance`, `rubocop-rake`, `rubocop-rspec` plugins; `NewCops: enable`
+- Targets Ruby >= 3.3; CI tests against Ruby 3.3, 3.4, 4.0, plus ruby-head and jruby-head (heads allowed to fail)
 - No `Gemfile.lock` checked in (gem, not application)
-- `Style/Documentation` and `Style/FrozenStringLiteralComment` are disabled
+- Single `.rubocop.yml` at root (no spec-level override)
+- Follows conventions from sibling `array_proc` gem
