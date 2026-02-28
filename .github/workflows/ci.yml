@@ -1,0 +1,43 @@
+name: Continuous Integration
+
+on:
+  pull_request:
+  push:
+    branches: [ master ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Install Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+      - name: Lint code for consistent style
+        run: bundle exec rubocop -f github
+
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby-version: ['3.3', '3.4', '4.0']
+        include:
+          - ruby-version: ruby-head
+            ignore: true
+          - ruby-version: jruby-head
+            ignore: true
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Install Ruby ${{ matrix.ruby-version }}
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+          bundler-cache: true
+      - name: Run RSpec
+        continue-on-error: ${{ matrix.ignore || false }}
+        run: bundle exec rspec

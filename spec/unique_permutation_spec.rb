@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), 'spec_helper')
+# frozen_string_literal: true
 
 describe Array do
   describe '#unique_permutation' do
@@ -13,14 +13,13 @@ describe Array do
       ]
     end
 
-    it 'takes a block that is yielded an array representing each permutation of the array' do
+    it 'yields each permutation to the block' do
       array.unique_permutation do |permutation|
-        expect(permutation).to be_a(Array)
-        expect(unique_permutations.include?(permutation)).to be(true)
+        expect(unique_permutations).to include(permutation)
       end
     end
 
-    it 'returns an enum if no block is given' do
+    it 'returns an enumerator if no block is given' do
       expect(array.unique_permutation).to be_a(Enumerator)
     end
 
@@ -34,8 +33,26 @@ describe Array do
       expect(array.unique_permutation.to_a).to eq(unique_permutations)
     end
 
-    it 'return fewer elements than the built in Ruby permutation method which produces duplicates' do
+    it 'returns fewer elements than the built in permutation method which produces duplicates' do
       expect(array.unique_permutation.count).to be < array.permutation.count
+    end
+
+    it 'returns one permutation for an empty array' do
+      expect([].unique_permutation.to_a).to eq([[]])
+    end
+
+    it 'returns one permutation for a single element' do
+      expect([1].unique_permutation.to_a).to eq([[1]])
+    end
+
+    it 'returns one permutation when all elements are identical' do
+      expect([2, 2, 2].unique_permutation.to_a).to eq([[2, 2, 2]])
+    end
+
+    it 'matches the count of the built in permutation method when all elements are unique' do
+      all_unique = [1, 2, 3]
+
+      expect(all_unique.unique_permutation.count).to eq(all_unique.permutation.count)
     end
   end
 end

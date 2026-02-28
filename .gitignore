@@ -1,4 +1,9 @@
-.DS_Store
+# Tests
 coverage
+
+# OS X
+.DS_Store
+
+# Dev
 *.gem
 Gemfile.lock

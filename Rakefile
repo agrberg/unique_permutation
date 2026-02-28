@@ -1,21 +1,20 @@
+# frozen_string_literal: true
+
 require 'rake'
 require 'rspec/core/rake_task'
 require 'rubocop/rake_task'
 
 desc 'Linter (rubocop) followed by tests (rspec)'
-task default: %i[rubocop rspec]
+task default: %i[rubocop spec]
 
-desc 'Run RSpec Tests'
-RSpec::Core::RakeTask.new(:rspec) do |t|
+desc 'Run specs'
+RSpec::Core::RakeTask.new do |t|
   t.pattern = './spec/**/*_spec.rb'
 end
 
-desc 'Run Rubocop Linter'
-RuboCop::RakeTask.new(:rubocop) do |t|
-  t.options = ['--display-cop-names']
-end
+RuboCop::RakeTask.new
 
-desc 'Generage code coverage with simplecov'
+desc 'Generate code coverage with simplecov'
 task :coverage do
   `COVERAGE=true rspec`
   `open coverage/index.html`

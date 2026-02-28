@@ -1,16 +1,18 @@
+plugins:
+  - rubocop-performance
+  - rubocop-rake
+  - rubocop-rspec
+
 AllCops:
-  TargetRubyVersion: 2.6
   NewCops: enable
-
-Style/Documentation:
-  Enabled: false
-
-Style/FrozenStringLiteralComment:
-  Enabled: false
+  TargetRubyVersion: 3.3
 
 Style/NumericPredicate:
   Exclude:
     - lib/unique_permutation.rb
 
-Style/SpecialGlobalVars:
-  EnforcedStyle: use_english_names
+RSpec/DescribedClass: # Monkey-patching Array — not testing Array itself
+  Enabled: false
+
+RSpec/SpecFilePathFormat: # Monkey-patching Array — not testing Array itself
+  Enabled: false
